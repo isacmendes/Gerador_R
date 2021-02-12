@@ -1,4 +1,4 @@
-batchGraphGen<-function(batchSize=10){
+  batchGraphGen<-function(batchSize=10){
 #uses dggen to generate batches of digraphs 
   source('Versions/v_2020_12_26/dggenER.r')
 # Factor parameters 
@@ -26,13 +26,21 @@ batchGraphGen<-function(batchSize=10){
   # percNegFactorSet<-c(0,20,40,60,80,100)
   # cpMultFactorSet<-c(1,2)
 
-  nodeFactorSet<-c(50)
-  LayerFactorSet<-c(10)
-  maxFanFactorSet<-c(3)
-  # orderSt<-c(25,50,75)
-  discRateFactorSet<-c(0,20)
-  percNegFactorSet<-c(30,60)
-  cpMultFactorSet<-c(2)
+  # nodeFactorSet<-c(40,80)
+  # LayerFactorSet<-c(5,20)
+  # maxFanFactorSet<-c(2,3)
+  # # orderSt<-c(25,50,75)
+  # discRateFactorSet<-c(10,20)
+  # percNegFactorSet<-c(0,25, 50)
+  # cpMultFactorSet<-c(1,2)
+  #
+  # nodeFactorSet<-c(80)
+  # LayerFactorSet<-c(20)
+  # maxFanFactorSet<-c(3)
+  # # orderSt<-c(25,50,75)
+  # discRateFactorSet<-c(20)
+  # percNegFactorSet<-c(25,50)
+  # cpMultFactorSet<-c(2)
 
   # nodeFactorSet<-c(100)
   # LayerFactorSet<-c(20)
@@ -42,7 +50,62 @@ batchGraphGen<-function(batchSize=10){
   # percNegFactorSet<-c(100)
   # cpMultFactorSet<-c(1)
 
-  
+  # # Lotes GRANDE PARA HS e SAA
+  # nodeFactorSet<-c(300)
+  # LayerFactorSet<-c(10)
+  # maxFanFactorSet<-c(3)
+  # discRateFactorSet<-c(10)
+  # percNegFactorSet<-c(33,66)
+  # cpMultFactorSet<-c(1)
+
+  # nodeFactorSet<-c(320)
+  # LayerFactorSet<-c(10)
+  # maxFanFactorSet<-c(3)
+  # discRateFactorSet<-c(10)
+  # percNegFactorSet<-c(100)
+  # cpMultFactorSet<-c(1)
+
+  # # Lotes definitivos (GRUPO 1)
+  # nodeFactorSet<-c(40,80)
+  # LayerFactorSet<-c(5,20)
+  # maxFanFactorSet<-c(2,3)
+  # discRateFactorSet<-c(10,20,30)
+  # percNegFactorSet<-c(0,25,50,75,100)
+  # cpMultFactorSet<-c(1,2)
+
+  # Lotes definitivos (GRUPO 1)
+  # nodeFactorSet<-c(40,80)
+  # LayerFactorSet<-c(5,20)
+  # maxFanFactorSet<-c(2,3)
+  # discRateFactorSet<-c(10,20)
+  # percNegFactorSet<-c(0,33,66,100)
+  # cpMultFactorSet<-c(1,2)
+
+  # # Lotes definitivos (GRUPO 2)
+  # nodeFactorSet<-c(160,320)
+  # LayerFactorSet<-c(5,20)
+  # maxFanFactorSet<-c(2,3)
+  # discRateFactorSet<-c(10,20)
+  # percNegFactorSet<-c(0,33,66,100)
+  # cpMultFactorSet<-c(1,2)
+
+  # Lotes (redes pequenas) testes reunião
+  nodeFactorSet<-c(40)
+  LayerFactorSet<-c(10)
+  maxFanFactorSet<-c(3)
+  discRateFactorSet<-c(10)
+  percNegFactorSet<-c(0, 50, 100)
+  cpMultFactorSet<-c(1)
+
+  # # Lotes (redes grandes) testes reunião
+  # nodeFactorSet<-c(320)
+  # LayerFactorSet<-c(10)
+  # maxFanFactorSet<-c(3)
+  # discRateFactorSet<-c(10)
+  # percNegFactorSet<-c(0, 50, 100)
+  # cpMultFactorSet<-c(1)
+
+
   minDur=5
   maxDur=10
   minCf=-50
@@ -168,7 +231,7 @@ printToFile<-function(namedir,fLabel,fIndex,suc,d,cF){
           for (percNeg in percNegFactorSet){
             for (cpMult in cpMultFactorSet){
               date.time <- format(Sys.time(), "%m-%d-%H-%M")
-              namedir<-paste('Samples/2021-01-06/',date.time,'-',nNodes,'-',nlayers,'-',fan,'-',dr,'-',percNeg,'-',cpMult,sep="",collapse = "")
+              namedir<-paste('Samples/2021-01-28_pequena/',date.time,'-',nNodes,'-',nlayers,'-',fan,'-',dr,'-',percNeg,'-',cpMult,sep="",collapse = "")
               print(namedir)              
               #1-create folder for batch
               dir.create(namedir,recursive = TRUE)
@@ -191,5 +254,4 @@ printToFile<-function(namedir,fLabel,fIndex,suc,d,cF){
   tproc<-proc.time()-tini
   tproc
 }
-
-batchGraphGen(50)
+batchGraphGen(30)
