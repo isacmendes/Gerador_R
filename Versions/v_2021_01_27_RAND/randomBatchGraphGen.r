@@ -13,13 +13,23 @@ randomBatchGraphGen<-function(nSamples=500){
   # percNegFactorSet<-c(0:50)
   # cpMultFactorSet<-c(1,1.5,2)
 
-  nodeFactorSet<-16:80
+  # Primeiro lote - G1
+  nodeFactorSet<-4:8
   #LayerFactorSet<-c(4:8) #Definido depois do sorteio de 'nodeFactorSet'
   #nlayers<-2
   maxFanFactorSet<-c(2:3)
-  discRateFactorSet<-c(0:20)
-  percNegFactorSet<-c(10:90)
+  discRateFactorSet<-c(1:80)
+  percNegFactorSet<-c(0,10,20,30,40,50,60,70,80,90,100)
   cpMultFactorSet<-c(1,2)
+
+  # Segundo lote - G1
+  # nodeFactorSet<-16:320
+  # #LayerFactorSet<-c(4:8) #Definido depois do sorteio de 'nodeFactorSet'
+  # #nlayers<-2
+  # maxFanFactorSet<-c(2:3)
+  # discRateFactorSet<-c(1:20)
+  # percNegFactorSet<-c(0,10,20,30,40,50,60,70,80,90,100)
+  # cpMultFactorSet<-c(1,2)
   
 # Range parameters
   minDur=5
@@ -135,13 +145,14 @@ printToFile<-function(namedir,fIndex,suc,d,cF){
 #main
   tini<-proc.time()
   date.time <- format(Sys.time(), "%y%m%d%H%M")
-  namedir<-paste('Samples/Random/LoteAleatorio_',date.time,sep="",collapse = "")
+  namedir<-paste('Samples/Teste_RSBK/LoteAleatorio_',date.time,sep="",collapse = "")
   print(namedir)              
   dir.create(namedir,recursive = TRUE)
   r<-data.frame(matrix(ncol=7,nrow=nSamples))
   rNames<-c('ind','nNodes','nLayers','fan','discRate','percNeg','cpMult')
   colnames(r)<-rNames
-  
+
+    # Alteração em nlayers
     for ( i in 1:nSamples){
         if(i %% 10 ==0 ) print(c('i=',i))
         nNodes<-sample(nodeFactorSet,1,replace = T)
@@ -164,4 +175,4 @@ printToFile<-function(namedir,fIndex,suc,d,cF){
   tproc<-proc.time()-tini
   r
 }
-randomBatchGraphGen(1000)
+randomBatchGraphGen(100)

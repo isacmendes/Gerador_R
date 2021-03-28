@@ -2,12 +2,12 @@
 <project version="4">
   <component name="RGraphicsSettings">
     <option name="darkMode" value="false" />
-    <option name="height" value="440" />
+    <option name="height" value="261" />
     <option name="imageNumber" value="1" />
     <option name="outputDirectory" value="$PROJECT_DIR$" />
     <option name="resolution" value="75" />
     <option name="standalone" value="false" />
     <option name="version" value="2" />
-    <option name="width" value="131" />
+    <option name="width" value="319" />
   </component>
 </project>
